@@ -1,0 +1,78 @@
+import tkinter as tk
+
+root = tk.Tk()
+root.title("Diabetes Prediction GUI")
+root.geometry("400x400")
+
+inputs = {}
+features = {
+    'Pregnancies': 'times',
+    'Glucose': 'mg/dL',
+    'BloodPressure': 'mmHg',
+    'SkinThickness': 'mm',
+    'Insulin': 'mu U/mL',
+    'BMI': 'kg/m²',
+    'DiabetesPedigreeFunction': '',
+    'Age': 'years'
+}
+
+
+for feature, unit in features.items():
+    frame = tk.Frame(root)
+    frame.pack(pady=2)
+    
+    label_text = feature
+    if unit:
+        label_text += f" ({unit})"
+    label = tk.Label(frame, text=label_text + ": ", width=25, anchor='w')
+    label.pack(side='left')
+    
+    entry = tk.Entry(frame)
+    entry.pack(side='left')
+    
+    inputs[feature] = entry
+
+
+import joblib
+import numpy as np
+
+# my trained model
+model = joblib.load(r"C:\Users\mishr\Downloads\diabetes_model.pkl")
+
+result_label = tk.Label(root, text="", font=("Helvetica", 12))
+result_label.pack(pady=10)
+
+def predict_diabetes():
+    try:
+        user_input = [float(inputs[feature].get()) for feature in features]
+        user_input = np.array(user_input).reshape(1, -1)
+        
+        
+        prediction = model.predict(user_input)[0]
+        probability = model.predict_proba(user_input)[0][prediction]
+        
+        
+        if prediction == 1:
+            result_label.config(
+                text=f"Prediction: Diabetic ({probability*100:.1f}% confidence)",
+                fg="red"
+            )
+        else:
+            result_label.config(
+                text=f"Prediction: Not Diabetic ({probability*100:.1f}% confidence)",
+                fg="green"
+            )
+    except ValueError:
+        result_label.config(text="Please enter valid numeric values.")
+def clear_inputs():
+    for entry in inputs.values():
+        entry.delete(0, tk.END)
+    result_label.config(text="")
+
+predict_button = tk.Button(root, text="Predict", command=predict_diabetes)
+predict_button.pack(pady=10)
+clear_button = tk.Button(root, text="Clear", command=clear_inputs)
+clear_button.pack(pady=5)
+
+root.mainloop()
+
