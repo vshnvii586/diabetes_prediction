@@ -37,7 +37,7 @@ import joblib
 import numpy as np
 
 # my trained model
-model = joblib.load(r"C:\Users\mishr\Downloads\diabetes_model.pkl")
+model = joblib.load("diabetes_model.pkl")
 
 result_label = tk.Label(root, text="", font=("Helvetica", 12))
 result_label.pack(pady=10)
