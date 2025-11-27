@@ -1,4 +1,4 @@
-Diabetes Prediction System (ML + GUI)
+# Diabetes Prediction System (ML + GUI)
 
 A friendly, approachable, end-to-end machine learning project that predicts the likelihood of diabetes using a Logistic Regression model — wrapped inside a clean, simple Tkinter GUI.
 
@@ -154,16 +154,7 @@ It demonstrates the accessibility of machine learning and serves as an encouragi
 
 **Vaishnavi Mishra**
 CSE (Computational & Data Science)
-VIT Bhopal
-
-Feel free to explore, learn, and build on this project!
-
----
-
-# 💬 Feedback & Contributions
-
-Have ideas or suggestions?
-Open an Issue or Discussion on GitHub!
+VIT Bhopal University
 
 Because great software grows through curiosity, collaboration, and kindness. 💫
 
