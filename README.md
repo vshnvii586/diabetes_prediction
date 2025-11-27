@@ -156,6 +156,4 @@ It demonstrates the accessibility of machine learning and serves as an encouragi
 CSE (Computational & Data Science)
 VIT Bhopal University
 
-Because great software grows through curiosity, collaboration, and kindness. 💫
-
 
