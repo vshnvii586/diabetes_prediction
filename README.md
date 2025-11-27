@@ -32,7 +32,7 @@ This system was built as an academic project and also as a hands-on exploration 
 ### Who made this?
 
 Created by **Vaishnavi Mishra**
-B.Tech Integrated M.Tech CSE (Computational & Data Science)
+Integrated M.Tech CSE (Computational & Data Science)
 VIT Bhopal University
 
 # 🔧 How It Works
